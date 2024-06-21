@@ -38,6 +38,11 @@ The prepend(value) method is the main logic flow that adds new nodes to the begi
  * @class
  * @param {*} value - The value to be stored in the node.
  */
+/**
+ * Represents a node in a singly-linked list.
+ * @class
+ * @param {*} value - The value to be stored in the node.
+ */
 class Node {
   constructor(value) {
     this.value = value;
@@ -77,6 +82,12 @@ class LinkedList {
    */
   prepend(value) {
     const node = new Node(value);
+    /**
+     * Adds a new node with the given value to the beginning of the linked list.
+     * If the list is empty, the new node becomes the head of the list.
+     * Otherwise, the new node is prepended to the current head of the list.
+     * @param {*} value - The value to be stored in the new node.
+     */
     if (this.isEmpty()) {
       this.head = node;
     } else {
