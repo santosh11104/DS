@@ -132,31 +132,30 @@ class LinkedList {
    * @param {*} value - The value to be stored in the new node.
    * @param {number} index - The index at which the new node should be inserted.
    */
-  insert(value,index){
-    if(index<0||index>this.size){
+  insert(value, index) {
+    if (index < 0 || index > this.size) {
       return;
-  }
-  if( index=== 0){
-this.prepend(value);
-  /**
-   * Inserts a new node with the given value at the specified index in the linked list.
-   * If the index is not 0, the new node is inserted by traversing the list to the previous node
-   * and updating the next pointers.
-   * @param {*} value - The value to be stored in the new node.
-   * @param {number} index - The index at which the new node should be inserted.
-   */
-  }else{
-    const node = new Node(value);
-    let prev = this.head;
-    for(let i=0;i<index-1;i++){
-      prev = prev.next;
-      
     }
-    node.next = prev.next;
-    prev.next = node;
-    this.size++;
+    if (index === 0) {
+      this.prepend(value);
+      /**
+       * Inserts a new node with the given value at the specified index in the linked list.
+       * If the index is not 0, the new node is inserted by traversing the list to the previous node
+       * and updating the next pointers.
+       * @param {*} value - The value to be stored in the new node.
+       * @param {number} index - The index at which the new node should be inserted.
+       */
+    } else {
+      const node = new Node(value);
+      let prev = this.head;
+      for (let i = 0; i < index - 1; i++) {
+        prev = prev.next;
+      }
+      node.next = prev.next;
+      prev.next = node;
+      this.size++;
+    }
   }
-}
 
   /**
    * Prints the values of all nodes in the linked list.
@@ -178,16 +177,15 @@ this.prepend(value);
   }
 }
 const list = new LinkedList();
- 
-list.insert(10,0);
+
+list.insert(10, 0);
 
 list.print();
-list.insert(20,0);
+list.insert(20, 0);
 
 list.print();
-list.insert(30,1);
+list.insert(30, 1);
 
 list.print();
-list.insert(40,2);
+list.insert(40, 2);
 list.print();
- 
