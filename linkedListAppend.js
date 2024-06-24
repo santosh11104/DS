@@ -98,6 +98,31 @@ class LinkedList {
   }
 
   /**
+   * Adds a new node with the given value to the end of the linked list.
+   * If the list is empty, the new node becomes the head of the list.
+   * Otherwise, the new node is appended to the end of the list.
+   * @param {*} value - The value to be stored in the new node.
+   */
+  append(value) {
+    const node = new Node(value);
+    if (this.isEmpty()) {
+      this.head = node;
+      /**
+       * Adds a new node with the given value to the end of the linked list.
+       * If the list is not empty, the new node is appended to the end of the list.
+       * @param {*} value - The value to be stored in the new node.
+       */
+    } else {
+      let prev = this.head;
+      while (prev.next) {
+        prev = prev.next;
+      }
+      prev.next = node;
+    }
+    this.size++;
+  }
+
+  /**
    * Prints the values of all nodes in the linked list.
    * If the list is empty, it logs "List is empty" to the console.
    * Otherwise, it logs a string representation of the list, with each node's value separated by an arrow (->) character.
@@ -120,8 +145,8 @@ const list = new LinkedList();
 console.log("List is Empty?", list.isEmpty());
 console.log("List Size", list.getSize());
 list.print();
-list.prepend(10);
+list.append(10);
 list.print();
-list.prepend(20);
-list.prepend(30);
+list.append(20);
+list.append(30);
 list.print();
